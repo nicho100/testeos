@@ -1,13 +1,14 @@
-const{getAllChats,getChatById,addSingleChat}=require("../dao/chat")
-
+const getDao = require("../dao")
 const getChats=async()=>{//trae todos los chats que hay en la base de datos
-    const chats=await getAllChats()//se usa la implementacion del dao
+    const dao=await getDao()
+    const chats=await dao.getAllChats()//se usa la implementacion del dao
     return chats
 }
             
 const addChat=async(chat)=>{//añade un chat a la base de datos
+    const dao=await getDao()
     if (chat.email){
-        const addedChat=await addSingleChat(chat)
+        const addedChat=await dao.addSingleChat(chat)
         return addedChat
     }
         throw new Error("Invalid chat")
@@ -17,7 +18,8 @@ const addChat=async(chat)=>{//añade un chat a la base de datos
     //    console.log(elementDelete)
     //}
 const getById=async(id)=>{//trae el chat de un usuario por id
-    const chat= await getChatById(id)
+    const dao=await getDao()
+    const chat= await dao.getChatById(id)
     return chat
 }
 //const update= async(elementId,key,newValue)=>{
