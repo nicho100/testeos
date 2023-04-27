@@ -1,8 +1,9 @@
 const User=require("../schemas/mongoUser")
-const connectToDb=require("../config/connectToDb")
+const  mongoose  = require("mongoose")
+const { urlMongo } = require("../config/enviorment")
 class MongoUser{
     async connect(){
-        await connectToDb()
+        await mongoose.connect(urlMongo)
     }
 getAllUsers=async()=>{//se traen todos los usuarios de la base de datos
     const users=await User.find({})
