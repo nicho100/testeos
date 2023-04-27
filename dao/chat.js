@@ -1,7 +1,9 @@
 const Chat=require("../schemas/mongoChat")
+const  mongoose  = require("mongoose")
+const { urlMongo } = require("../config/enviorment")
 class MongoChat{
     async connect(){
-        await connectToDb()
+        await mongoose.connect(urlMongo)
     }
 
 getAllChats=async()=>{//se traen todos los chats de la base de datos
@@ -19,7 +21,3 @@ getChatById=async(id)=>{//se busca un chat por el id en la base de datos
 }  
 
 }
-
-
-
-module.exports=MongoChat
