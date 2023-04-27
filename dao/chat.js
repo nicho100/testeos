@@ -22,4 +22,4 @@ getChatById=async(id)=>{//se busca un chat por el id en la base de datos
 
 
 
-module.exports={MongoChat}
+module.exports=MongoChat
