@@ -20,4 +20,4 @@ getUserById=async(id)=>{//se busca un usuario por id en la base de datos
 }
 
 
-module.exports={MongoUser}
+module.exports=MongoUser
