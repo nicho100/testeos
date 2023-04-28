@@ -1,12 +1,12 @@
-const getDao = require("../dao")
+const {getDaoc} = require("../dao/index")
 const getChats=async()=>{//trae todos los chats que hay en la base de datos
-    const dao=await getDao()
+    const dao=await getDaoc()
     const chats=await dao.getAllChats()//se usa la implementacion del dao
     return chats
 }
             
 const addChat=async(chat)=>{//añade un chat a la base de datos
-    const dao=await getDao()
+    const dao=await getDaoc()
     if (chat.email){
         const addedChat=await dao.addSingleChat(chat)
         return addedChat
@@ -18,7 +18,7 @@ const addChat=async(chat)=>{//añade un chat a la base de datos
     //    console.log(elementDelete)
     //}
 const getById=async(id)=>{//trae el chat de un usuario por id
-    const dao=await getDao()
+    const dao=await getDaoc()
     const chat= await dao.getChatById(id)
     return chat
 }
