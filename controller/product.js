@@ -1,5 +1,4 @@
-const getDao = require("../dao")
-
+const {getDao} = require("../dao/index")
 
 const getProducts=async()=>{//trae todos los productos
     const dao=await getDao()
