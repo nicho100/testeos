@@ -1,24 +1,24 @@
-const getDao = require("../dao")
+const {getDaos} = require("../dao/index")
 const getUsers=async()=>{
-    const dao=await getDao()
+    const dao=await getDaos()
     const users=await dao.getAllUsers()
     return users
 }
             
 const addUser=async(user)=>{
-    const dao=await getDao()
+    const dao=await getDaos()
     if (user.name){
         const addedUser=await dao.addSingleUser(user)
         return addedUser
     }
-        //throw new Error("Invalid user")
+        throw new Error("Invalid user")
 }
     //const delete= async(elementId)=>{
     //    let elementDelete= await this.model.deleteOne({_id:elementId})
     //    console.log(elementDelete)
     //}
 const getById=async(id)=>{
-    const dao=await getDao()
+    const dao=await getDaos()
     const user= await dao.getUserById(id)
     return user
 }
