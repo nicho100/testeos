@@ -1,13 +1,12 @@
+const {getDaos} = require('../dao');
 const { getUsers,getById, addUser } = require('../controller/user');
-const getDao = require('../dao');
-
 const expect = require('chai').expect;
 
 describe('User controller', () => {
   describe('getUsers', () => {
     beforeEach(async () => {
-      const daoClient = await getDao();
-      await daoClient.clear();
+      const daoClient = await getDaos();
+      //await daoClient.clear();
     });
 
     it('retorna un array de usuarios que se añadieron', async () => {
@@ -36,12 +35,12 @@ describe('User controller', () => {
 
   describe('getUser', () => {
     beforeEach(async () => {
-      const daoClient = await getDao();
-      await daoClient.clear();
+      const daoClient = await getDaos();
+      //await daoClient.clear();
     });
 
     it(`deberia retornar null si el usuario no existe`, async () => {
-      const result = await getById('123');
+      const result = await getById('12');
 
       expect(result).to.be.null;
     });
@@ -65,8 +64,8 @@ describe('User controller', () => {
 
   describe('addUser', () => {
     beforeEach(async () => {
-      const daoClient = await getDao();
-      await daoClient.clear();
+      const daoClient = await getDaos();
+      //await daoClient.clear();
     });
 
     it('deberia añadir un usuario a la base de datos', async () => {
