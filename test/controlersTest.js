@@ -54,7 +54,7 @@ describe('User controller', () => {
         password,
       });
 
-      const result = await getById(username._id);
+      const result = await getById(user._id);
 
       expect(result).to.be.an('object');
       expect(result.nickname).to.be.eq(`${username} ${password}`);
