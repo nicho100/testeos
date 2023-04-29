@@ -1,5 +1,5 @@
 const { config } = require('../../config/enviorment');
-const getDao = require('../../dao');
+const {getDaos} = require('../../dao')
 const request = require('supertest')(`http://localhost:${config.puerto}`);
 const expect = require('chai').expect;
 
@@ -7,8 +7,8 @@ describe('Users api test', () => {
   
   describe('POST /signup', () => {
     beforeEach(async () => {
-      const daoClient = await getDao();
-      await daoClient.clear();
+      const daoClient = await getDaos();
+      //await daoClient.clear();
     });
 
     it('deberia retornar 200 si el usuario es valido', async () => {
